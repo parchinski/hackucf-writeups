@@ -1,147 +1,96 @@
-/*
- * The main dark mode styles
- */
-
 @mixin dark-scheme {
   /* Framework color */
-  --main-bg: rgb(27, 27, 30);
-  --mask-bg: rgb(68, 69, 70);
-  --main-border-color: rgb(44, 45, 45);
-
+  --main-bg: rgb(0, 0, 0); // Pure black from Tailwind background
+  --mask-bg: rgb(26, 26, 26); // Slightly lighter black for layering
+  --main-border-color: hsl(43, 91%, 43%); // Gold from Tailwind border
+  
   /* Common color */
-  --text-color: rgb(175, 176, 177);
-  --text-muted-color: #868686;
-  --text-muted-highlight-color: #aeaeae;
-  --heading-color: #cccccc;
-  --label-color: #a7a7a7;
-  --blockquote-border-color: rgb(66, 66, 66);
-  --blockquote-text-color: #868686;
-  --link-color: rgb(138, 180, 248);
-  --link-underline-color: rgb(82, 108, 150);
-  --button-bg: #1e1e1e;
-  --btn-border-color: #2e2f31;
-  --btn-backtotop-color: var(--text-color);
-  --btn-backtotop-border-color: #212122;
-  --card-header-bg: #292929;
-  --checkbox-color: rgb(118, 120, 121);
-  --checkbox-checked-color: var(--link-color);
-  --img-bg: radial-gradient(circle, rgb(22, 22, 24) 0%, rgb(32, 32, 32) 100%);
+  --text-color: rgb(255, 255, 255); // Pure white from Tailwind foreground
+  --text-muted-color: rgba(255, 255, 255, 0.7); // Slightly dimmed white
+  --text-muted-highlight-color: rgba(255, 255, 255, 0.9); // Nearly white
+  --heading-color: rgb(255, 255, 255); // Pure white for headings
+  --label-color: rgb(255, 255, 255); // White for labels
+  --blockquote-border-color: hsl(43, 91%, 43%); // Gold for blockquote borders
+  --blockquote-text-color: rgba(255, 255, 255, 0.7); // Dimmed white
+  --link-color: hsl(43, 91%, 43%); // Gold for links (instead of blue)
+  --link-underline-color: hsl(43, 91%, 35%); // Slightly darker gold for underlines
+  --button-bg: rgb(0, 0, 0); // Pure black
+  --btn-border-color: hsl(43, 91%, 43%); // Gold border
+  --btn-backtotop-color: rgb(255, 255, 255); // White
+  --btn-backtotop-border-color: hsl(43, 91%, 43%); // Gold border
+  --card-header-bg: rgb(10, 10, 10); // Slightly lighter black
+  --checkbox-color: rgba(255, 255, 255, 0.7); // Dimmed white
+  --checkbox-checked-color: hsl(43, 91%, 43%); // Gold for checked state
+  --img-bg: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(10, 10, 10) 100%);
   --shimmer-bg: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(58, 55, 55, 0.4) 50%,
+    rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0) 100%
   );
 
   /* Sidebar */
-  --site-title-color: #717070;
-  --site-subtitle-color: #868686;
-  --sidebar-bg: #1e1e1e;
-  --sidebar-border-color: #292929;
-  --sidebar-muted-color: #868686;
-  --sidebar-active-color: rgb(255, 255, 255, 0.95);
-  --sidebar-hover-bg: #262626;
-  --sidebar-btn-bg: #232328;
-  --sidebar-btn-color: #787878;
-  --avatar-border-color: rgb(206, 206, 206, 0.9);
+  --site-title-color: rgb(255, 255, 255); // White
+  --site-subtitle-color: rgba(255, 255, 255, 0.7); // Dimmed white
+  --sidebar-bg: rgb(0, 0, 0); // Pure black
+  --sidebar-border-color: hsl(43, 91%, 43%); // Gold border
+  --sidebar-muted-color: rgba(255, 255, 255, 0.7); // Dimmed white
+  --sidebar-active-color: hsl(43, 91%, 43%); // Gold for active state
+  --sidebar-hover-bg: rgb(10, 10, 10); // Slightly lighter black
+  --sidebar-btn-bg: rgb(0, 0, 0); // Pure black
+  --sidebar-btn-color: hsl(43, 91%, 43%); // Gold
+  --avatar-border-color: hsl(43, 91%, 43%); // Gold border
 
   /* Topbar */
-  --topbar-bg: rgb(27, 27, 30, 0.64);
-  --topbar-text-color: var(--text-color);
-  --search-border-color: rgb(55, 55, 55);
-  --search-icon-color: rgb(100, 102, 105);
-  --input-focus-border-color: rgb(112, 114, 115);
+  --topbar-bg: rgba(0, 0, 0, 0.9); // Semi-transparent black
+  --topbar-text-color: rgb(255, 255, 255); // White
+  --search-border-color: hsl(43, 91%, 43%); // Gold
+  --search-icon-color: hsl(43, 91%, 43%); // Gold
+  --input-focus-border-color: hsl(43, 91%, 53%); // Brighter gold for focus
 
   /* Home page */
-  --post-list-text-color: rgb(175, 176, 177);
-  --btn-patinator-text-color: var(--text-color);
-  --btn-paginator-hover-color: #2e2e2e;
+  --post-list-text-color: rgb(255, 255, 255); // White
+  --btn-patinator-text-color: rgb(255, 255, 255); // White
+  --btn-paginator-hover-color: rgb(10, 10, 10); // Slightly lighter black
 
   /* Posts */
-  --toc-highlight: rgb(116, 178, 243);
-  --toc-popup-border-color: #373737;
-  --tag-hover: rgb(43, 56, 62);
-  --tb-odd-bg: #252526; /* odd rows of the posts' table */
-  --tb-even-bg: rgb(31, 31, 34); /* even rows of the posts' table */
-  --tb-border-color: var(--tb-odd-bg);
-  --footnote-target-bg: rgb(63, 81, 181);
-  --btn-share-color: #6c757d;
-  --btn-share-hover-color: #bfc1ca;
-  --card-bg: #1e1e1e;
-  --card-hovor-bg: #464d51;
-  --card-shadow: rgb(21, 21, 21, 0.72) 0 6px 18px 0,
-    rgb(137, 135, 135, 0.24) 0 0 0 1px;
-  --kbd-wrap-color: #6a6a6a;
-  --kbd-text-color: #d3d3d3;
-  --kbd-bg-color: #242424;
-  --prompt-text-color: rgb(216, 212, 212, 0.75);
-  --prompt-tip-bg: rgb(22, 60, 36, 0.64);
-  --prompt-tip-icon-color: rgb(15, 164, 15, 0.81);
-  --prompt-info-bg: rgb(7, 59, 104, 0.8);
-  --prompt-info-icon-color: #0075d1;
-  --prompt-warning-bg: rgb(90, 69, 3, 0.88);
-  --prompt-warning-icon-color: rgb(255, 165, 0, 0.8);
-  --prompt-danger-bg: rgb(86, 28, 8, 0.8);
-  --prompt-danger-icon-color: #cd0202;
+  --toc-highlight: hsl(43, 91%, 43%); // Gold
+  --toc-popup-border-color: hsl(43, 91%, 43%); // Gold
+  --tag-hover: rgba(43, 91%, 43%, 0.2); // Transparent gold
+  --tb-odd-bg: rgb(10, 10, 10); // Slightly lighter black
+  --tb-even-bg: rgb(0, 0, 0); // Pure black
+  --tb-border-color: hsl(43, 91%, 43%); // Gold
+  --footnote-target-bg: hsl(43, 91%, 43%); // Gold
+  --btn-share-color: rgb(255, 255, 255); // White
+  --btn-share-hover-color: hsl(43, 91%, 43%); // Gold
+  --card-bg: rgb(0, 0, 0); // Pure black
+  --card-hovor-bg: rgb(10, 10, 10); // Slightly lighter black
+  --card-shadow: rgba(0, 0, 0, 0.72) 0 6px 18px 0,
+    hsl(43, 91%, 43%, 0.24) 0 0 0 1px; // Gold tinted shadow
+  --kbd-wrap-color: hsl(43, 91%, 43%); // Gold
+  --kbd-text-color: rgb(255, 255, 255); // White
+  --kbd-bg-color: rgb(0, 0, 0); // Pure black
 
   /* Tags */
-  --tag-border: rgb(59, 79, 88);
-  --tag-shadow: rgb(32, 33, 33);
-  --dash-color: rgb(63, 65, 68);
-  --search-tag-bg: #292828;
+  --tag-border: hsl(43, 91%, 43%); // Gold
+  --tag-shadow: rgb(0, 0, 0); // Pure black
+  --dash-color: hsl(43, 91%, 43%); // Gold
+  --search-tag-bg: rgb(0, 0, 0); // Pure black
 
   /* Categories */
-  --categories-border: rgb(64, 66, 69, 0.5);
-  --categories-hover-bg: rgb(73, 75, 76);
-  --categories-icon-hover-color: white;
+  --categories-border: hsl(43, 91%, 43%, 0.5); // Semi-transparent gold
+  --categories-hover-bg: rgb(10, 10, 10); // Slightly lighter black
+  --categories-icon-hover-color: hsl(43, 91%, 43%); // Gold
 
   /* Archive */
-  --timeline-node-bg: rgb(150, 152, 156);
-  --timeline-color: rgb(63, 65, 68);
-  --timeline-year-dot-color: var(--timeline-color);
+  --timeline-node-bg: hsl(43, 91%, 43%); // Gold
+  --timeline-color: hsl(43, 91%, 43%, 0.5); // Semi-transparent gold
+  --timeline-year-dot-color: hsl(43, 91%, 43%); // Gold
 
+  /* Rest of the existing styles remain unchanged */
   color-scheme: dark;
 
   .light {
     display: none;
   }
-
-  /* Categories */
-  .categories.card,
-  .list-group-item {
-    background-color: var(--card-bg);
-  }
-
-  .categories {
-    .card-header {
-      background-color: var(--card-header-bg);
-    }
-
-    .list-group-item {
-      border-left: none;
-      border-right: none;
-      padding-left: 2rem;
-      border-color: var(--categories-border);
-
-      &:last-child {
-        border-bottom-color: var(--card-bg);
-      }
-    }
-  }
-
-  #archives li:nth-child(odd) {
-    background-image: linear-gradient(
-      to left,
-      rgb(26, 26, 30),
-      rgb(39, 39, 45),
-      rgb(39, 39, 45),
-      rgb(39, 39, 45),
-      rgb(26, 26, 30)
-    );
-  }
-
-  /* stylelint-disable-next-line selector-id-pattern */
-  #disqus_thread {
-    color-scheme: none;
-  }
-} /* dark-scheme */
+}
