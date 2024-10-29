@@ -39,8 +39,39 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       {% for tag_name in trending_tags %}
         {% assign url = tag_name | slugify | url_encode | prepend: '/tags/' | append: '/' %}
-        <a class="inline-flex px-3 py-1.5 text-sm font-medium rounded-full border border-[hsl(43,91%,43%)] text-[hsl(43,91%,43%)] bg-transparent hover:bg-[hsl(43,91%,43%)] hover:text-black transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(43,91%,43%)] focus:ring-opacity-50" href="{{ url | relative_url }}">{{ tag_name }}</a>
+        <a class="tag-link" href="{{ url | relative_url }}">{{ tag_name }}</a>
       {% endfor %}
     </div>
   </section>
 {% endif %}
+
+<style>
+.tag-link {
+  display: inline-flex;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  border: 1px solid hsl(43, 91%, 43%);
+  color: hsl(43, 91%, 43%);
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.tag-link:hover {
+  background-color: hsl(43, 91%, 43%);
+  color: black;
+  transform: scale(1.05);
+}
+
+.tag-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(205, 164, 0, 0.5);
+}
+
+/* Optional: Add active state for when tag is being clicked */
+.tag-link:active {
+  transform: scale(0.98);
+}
+</style>
