@@ -13,7 +13,7 @@ timezone: America/New_York
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: HackUCF # the main title
+title: HackUCF Writeups # the main title
 
 tagline: HackUCF's official writeup storage and wiki. # it will display as the subtitle
 
