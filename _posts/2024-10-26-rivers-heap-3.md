@@ -5,7 +5,12 @@ description: Utilizing a buffer overflow payload to override pointers
 date:   2024-10-22
 tags: ["Medium", "Buffer Overflow", "Binary Exploitation"]
 category: [CTF,picoCTF]
+comments: true
 ---
+
+{: .prompt-info }
+> **Provided By**  
+> [Rivers](https://rivers.sh) <- visit their site!
 
 ## Challenge Info
 Can you handle function pointers? Download the binary [here](https://artifacts.picoctf.net/c_mimas/49/chall). Download the source [here](https://artifacts.picoctf.net/c_mimas/49/chall.c).
