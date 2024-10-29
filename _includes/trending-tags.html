@@ -39,7 +39,7 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       {% for tag_name in trending_tags %}
         {% assign url = tag_name | slugify | url_encode | prepend: '/tags/' | append: '/' %}
-        <a class="btn btn-outline-primary hover:bg-[hsl(43,91%,43%)] hover:text-black transition-colors duration-200" href="{{ url | relative_url }}">{{ tag_name }}</a>
+        <a class="inline-flex px-3 py-1.5 text-sm font-medium rounded-full border border-[hsl(43,91%,43%)] text-[hsl(43,91%,43%)] bg-transparent hover:bg-[hsl(43,91%,43%)] hover:text-black transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(43,91%,43%)] focus:ring-opacity-50" href="{{ url | relative_url }}">{{ tag_name }}</a>
       {% endfor %}
     </div>
   </section>
