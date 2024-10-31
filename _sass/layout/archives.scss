@@ -1,143 +1,139 @@
 /*
-  Style for Archives
+ Style for Archives
 */
-
 #archives {
-  letter-spacing: 0.03rem;
+ letter-spacing: 0.03rem;
+ $timeline-width: 4px;
 
-  $timeline-width: 4px;
+ %timeline {
+   content: '';
+   width: $timeline-width;
+   position: relative;
+   float: left;
+   background-color: hsl(43, 91%, 43%); // Changed to gold
+ }
 
-  %timeline {
-    content: '';
-    width: $timeline-width;
-    position: relative;
-    float: left;
-    background-color: var(--timeline-color);
-  }
+ .year {
+   height: 3.5rem;
+   font-size: 1.5rem;
+   position: relative;
+   left: 2px;
+   margin-left: -$timeline-width;
 
-  .year {
-    height: 3.5rem;
-    font-size: 1.5rem;
-    position: relative;
-    left: 2px;
-    margin-left: -$timeline-width;
+   &::before {
+     @extend %timeline;
+     height: 72px;
+     left: 79px;
+     bottom: 16px;
+   }
 
-    &::before {
-      @extend %timeline;
+   &:first-child::before {
+     @extend %timeline;
+     height: 32px;
+     top: 24px;
+   }
 
-      height: 72px;
-      left: 79px;
-      bottom: 16px;
-    }
+   /* Year dot */
+   &::after {
+     content: '';
+     display: inline-block;
+     position: relative;
+     border-radius: 50%;
+     width: 12px;
+     height: 12px;
+     left: 21.5px;
+     border: 3px solid;
+     background-color: var(--main-bg); // Changed to use theme background
+     border-color: hsl(43, 91%, 43%); // Changed to gold
+     box-shadow: 0 0 2px 0 hsl(43, 91%, 43%, 0.5); // Gold with opacity
+     z-index: 1;
+   }
+ }
 
-    &:first-child::before {
-      @extend %timeline;
+ ul {
+   li {
+     font-size: 1.1rem;
+     line-height: 3rem;
+     @extend %text-ellipsis;
 
-      height: 32px;
-      top: 24px;
-    }
+     &:nth-child(odd) {
+       background-color: var(--main-bg);
+       background-image: linear-gradient(
+         to left,
+         var(--main-bg),
+         var(--card-bg),
+         var(--card-bg),
+         var(--card-bg),
+         var(--main-bg)
+       );
+     }
 
-    /* Year dot */
-    &::after {
-      content: '';
-      display: inline-block;
-      position: relative;
-      border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      left: 21.5px;
-      border: 3px solid;
-      background-color: var(--timeline-year-dot-color);
-      border-color: var(--timeline-node-bg);
-      box-shadow: 0 0 2px 0 #c2c6cc;
-      z-index: 1;
-    }
-  }
+     &::before {
+       @extend %timeline;
+       top: 0;
+       left: 77px;
+       height: 3.1rem;
+     }
+   }
 
-  ul {
-    li {
-      font-size: 1.1rem;
-      line-height: 3rem;
+   &:last-child li:last-child::before {
+     height: 1.5rem;
+   }
+ }
 
-      @extend %text-ellipsis;
+ .date {
+   white-space: nowrap;
+   display: inline-block;
+   position: relative;
+   right: 0.5rem;
 
-      &:nth-child(odd) {
-        background-color: var(--main-bg, #ffffff);
-        background-image: linear-gradient(
-          to left,
-          #ffffff,
-          #fbfbfb,
-          #fbfbfb,
-          #fbfbfb,
-          #ffffff
-        );
-      }
+   &.month {
+     width: 1.4rem;
+     text-align: center;
+   }
 
-      &::before {
-        @extend %timeline;
+   &.day {
+     font-size: 85%;
+     font-family: Lato, sans-serif;
+   }
+ }
 
-        top: 0;
-        left: 77px;
-        height: 3.1rem;
-      }
-    }
+ a {
+   /* post title in Archives */
+   margin-left: 2.5rem;
+   position: relative;
+   top: 0.1rem;
+   color: var(--text-color); // Uses theme text color
+   transition: color 0.2s ease-in-out;
 
-    &:last-child li:last-child::before {
-      height: 1.5rem;
-    }
-  } /* #archives ul */
+   &:hover {
+     border-bottom: none;
+     color: hsl(43, 91%, 43%); // Gold on hover
+   }
 
-  .date {
-    white-space: nowrap;
-    display: inline-block;
-    position: relative;
-    right: 0.5rem;
-
-    &.month {
-      width: 1.4rem;
-      text-align: center;
-    }
-
-    &.day {
-      font-size: 85%;
-      font-family: Lato, sans-serif;
-    }
-  }
-
-  a {
-    /* post title in Archvies */
-    margin-left: 2.5rem;
-    position: relative;
-    top: 0.1rem;
-
-    &:hover {
-      border-bottom: none;
-    }
-
-    &::before {
-      /* the dot before post title */
-      content: '';
-      display: inline-block;
-      position: relative;
-      border-radius: 50%;
-      width: 8px;
-      height: 8px;
-      float: left;
-      top: 1.35rem;
-      left: 71px;
-      background-color: var(--timeline-node-bg);
-      box-shadow: 0 0 3px 0 #c2c6cc;
-      z-index: 1;
-    }
-  }
-} /* #archives */
+   &::before {
+     /* the dot before post title */
+     content: '';
+     display: inline-block;
+     position: relative;
+     border-radius: 50%;
+     width: 8px;
+     height: 8px;
+     float: left;
+     top: 1.35rem;
+     left: 71px;
+     background-color: hsl(43, 91%, 43%); // Changed to gold
+     box-shadow: 0 0 3px 0 hsl(43, 91%, 43%, 0.5); // Gold with opacity
+     z-index: 1;
+   }
+ }
+}
 
 @media all and (max-width: 576px) {
-  #archives {
-    margin-top: -1rem;
-
-    ul {
-      letter-spacing: 0;
-    }
-  }
+ #archives {
+   margin-top: -1rem;
+   ul {
+     letter-spacing: 0;
+   }
+ }
 }
