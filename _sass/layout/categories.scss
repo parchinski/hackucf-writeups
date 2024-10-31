@@ -1,83 +1,91 @@
 /*
-  Style for Tab Categories
+ Style for Tab Categories
 */
-
 %category-icon-color {
-  color: gray;
+ color: hsl(43, 91%, 43%); // Changed from gray to gold
 }
 
 .categories {
-  margin-bottom: 2rem;
-  border-color: var(--categories-border);
+ margin-bottom: 2rem;
+ border-color: hsl(43, 91%, 43%); // Changed to gold
+ background-color: var(--card-bg);
 
-  &.card,
-  .list-group {
-    @extend %rounded;
-  }
+ &.card,
+ .list-group {
+   @extend %rounded;
+ }
 
-  .card-header {
-    $radius: calc($radius-lg - 1px);
+ .card-header {
+   $radius: calc($radius-lg - 1px);
+   padding: 0.75rem;
+   border-radius: $radius;
+   border-bottom: 0;
+   background-color: var(--card-bg);
+   border: 1px solid hsl(43, 91%, 43%); // Added gold border
 
-    padding: 0.75rem;
-    border-radius: $radius;
-    border-bottom: 0;
+   &.hide-border-bottom {
+     border-bottom-left-radius: 0;
+     border-bottom-right-radius: 0;
+   }
+ }
 
-    &.hide-border-bottom {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-  }
+ i {
+   @extend %category-icon-color;
+   font-size: 86%; /* fontawesome icons */
+ }
 
-  i {
-    @extend %category-icon-color;
+ .list-group-item {
+   border-left: none;
+   border-right: none;
+   padding-left: 2rem;
+   border-color: hsl(43, 91%, 43%); // Changed border color to gold
+   background-color: var(--card-bg);
+   transition: background-color 0.3s ease;
 
-    font-size: 86%; /* fontawesome icons */
-  }
+   &:first-child {
+     border-top-left-radius: 0;
+     border-top-right-radius: 0;
+   }
 
-  .list-group-item {
-    border-left: none;
-    border-right: none;
-    padding-left: 2rem;
+   &:last-child {
+     border-bottom: 0;
+   }
 
-    &:first-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
+   &:hover {
+     background-color: hsla(43, 91%, 43%, 0.1); // Light gold background on hover
+   }
+ }
 } /* .categories */
 
 .category-trigger {
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
-  text-align: center;
-  color: #6c757d !important;
+ width: 1.7rem;
+ height: 1.7rem;
+ border-radius: 50%;
+ text-align: center;
+ color: hsl(43, 91%, 43%) !important; // Changed to gold
+ transition: all 0.3s ease;
 
-  i {
-    position: relative;
-    height: 0.7rem;
-    width: 1rem;
-    transition: transform 300ms ease;
-  }
+ i {
+   position: relative;
+   height: 0.7rem;
+   width: 1rem;
+   transition: transform 300ms ease;
+ }
 
-  &:hover {
-    i {
-      color: var(--categories-icon-hover-color);
-    }
-  }
+ &:hover {
+   i {
+     color: hsl(43, 91%, 33%); // Darker gold on hover
+   }
+ }
 }
 
 /* only works on desktop */
 @media (hover: hover) {
-  .category-trigger:hover {
-    background-color: var(--categories-hover-bg);
-  }
+ .category-trigger:hover {
+   background-color: hsla(43, 91%, 43%, 0.1); // Light gold background on hover
+ }
 }
 
 .rotate {
-  transform: rotate(-90deg);
+ transform: rotate(-90deg);
 }
